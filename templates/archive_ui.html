@@ -1,17 +1,34 @@
+<style>
+    #download-archive-wrapper, #download-complete-wrapper {
+        display: flex;
+        gap:1rem;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
 <div id="archive-ui" hx-target="this" hx-swap="outerHTML">
     {% if archiver.status() == "Waiting" %}
-        <button hx-post="/contacts/archive">
+    <div id="download-archive-wrapper">
+        <button hx-post="/contacts/archive" id="download-archive-btn">
             Download Contact Archive
         </button>
+    </div>
+
     {% elif archiver.status() == "Running" %}
-        <div hx-get="/contacts/archive" hx-trigger="load delay:500ms">
-            Creating Archive...
-            <div class="progress" >
-                <div id="archive-progress" class="progress-bar"></div>
-            </div>
+    <div hx-get="/contacts/archive" hx-trigger="load delay:500ms">
+        Creating Archive...
+        <div class="progress">
+            <div id="archive-progress" class="progress-bar" style="width:{{ archiver.progress() * 100 }}%"></div>
         </div>
+    </div>
     {% elif archiver.status() == "Complete" %}
-        <a hx-boost="false" href="/contacts/archive/file" _="on load click() me">Archive Downloading!  Click here if the download does not start.</a>
+    <div id="download-complete-wrapper">
+        <a hx-boost="false" href="/contacts/archive/file" _="on load click() me">Archive Downloading! Click here if the
+            download does not start.
+        </a>
         <button hx-delete="/contacts/archive">Clear Download</button>
+    </div>
+
     {% endif %}
 </div>

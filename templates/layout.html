@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="">
+
 <head>
     <title>Contact App</title>
     <link rel="stylesheet" href="/static/site.css">
@@ -9,27 +10,42 @@
     <script defer src="https://unpkg.com/alpinejs@3/dist/cdn.min.js"></script>
 
     <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
+            padding: 2rem 1rem;
             background-color: rgb(167, 252, 252);
             font-family: monospace;
         }
-
+        header {
+            text-align: center;
+        }
+        all-caps {
+            font-size: clamp(1rem,2rem,1.6rem);
+            text-shadow: 0.1px 0.1px 5px #0000006d;
+        } 
     </style>
 
 </head>
+
 <body hx-boost="true">
-<main>
-    <header>
-        <h1>[this app is being temporarily hosted here for research purposes only]</h1>
-        <h2>
-            <all-caps>contacts.app</all-caps>
-            <sub-title>A Demo Contacts Application</sub-title>
-        </h2>
-    </header>
-    {% for message in get_flashed_messages() %}
-      <div class="flash">{{ message }}</div>
-    {% endfor %}
-    {% block content %}{% endblock %}
-</main>
+    <main>
+        <header>
+            <h1>
+                <all-caps>contacts.app:</all-caps>
+                <sub-title>A Demo Contacts Application</sub-title>
+            </h1>
+            <h2>[originally created by bigskysoftware, I've only added some styles]</h2>
+            <h3>temporarily hosted here for research purposes only</h3>
+        </header>
+        {% for message in get_flashed_messages() %}
+        <div class="flash">{{ message }}</div>
+        {% endfor %}
+        {% block content %}{% endblock %}
+    </main>
 </body>
+
 </html>
