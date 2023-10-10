@@ -1,4 +1,4 @@
-### To clone the app
+### To clone this app
 Type this into your terminal
 
     git clone https://github.com/adelicia-js/htmx-contact-app.git
