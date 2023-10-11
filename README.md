@@ -16,6 +16,8 @@ Type this into your terminal
 
     source venv/bin/activate
 
+(Remember to do the activation step every time)
+
 #### Install requirements
 
     pip install -r requirements.txt
