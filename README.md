@@ -1,4 +1,6 @@
-**Note: The following steps were carried out on an Ubuntu machine.**
+**UPDATE:** The app is no longer hosted, as my free trial for Google Cloud reached its end.
+
+**Note:** The following steps were carried out on an Ubuntu machine.
 
 ## Setup
 
